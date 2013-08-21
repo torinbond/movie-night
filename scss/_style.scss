@@ -1,0 +1,117 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster+Two:700);
+
+body{
+	height: 100%;
+	font: normal 100% Verdana, Geneva, sans-serif;
+	@include background( url("../img/dark_exa.png") );
+}
+
+.listing {
+	overflow: auto; /* Recommended in case content is larger than the container */
+	margin: auto; /* Center the item vertically & horizontally */
+	position: relative; /* Break it out of the regular flow */
+	top: 0; left: 0; bottom: 0; right: 0; /* Set the bounds in which to center it, relative to its parent/container */
+
+	::-webkit-input-placeholder{
+		font-family: 'Glass Antiqua', cursive;
+		font-size:1em;
+	}
+	::-moz-placeholder {  /* Firefox 19+ */
+	   font-family: 'Glass Antiqua', cursive;  
+	   font-size:1em;
+	}
+	h1 {
+		font-family: 'Lobster Two', cursive;
+		text-align: center;
+		color: white;
+		font-size: 3em;
+	}
+	.form{
+		text-align: center;
+
+		input {
+			text-align: center;
+			font-family: 'Lobster Two', cursive;
+			font-size: 1.6em;
+		  	width:35%;
+		  	height: 2em;
+		  	background:#f5f5f5;
+		  	border:0;
+		  	border-radius:6px;
+		  	margin:0 auto 0 auto;
+		  	border:1px solid #eee;
+		  	@include inline-block;
+		}
+		.submit-button {
+			@include inline-block;
+			width: 5%;
+			cursor: pointer;
+		}
+	}
+}
+
+.outer-container{
+	@include outer-container;
+	position: relative;
+	text-align: center;
+	//max-width: 100%;
+	height: 500px;
+	margin: 25px auto 0 auto;
+	
+	.movie-container {
+		width: 205px;
+		height: 300px;
+		margin: 15px;
+  		background: white;
+  		perspective: 1000;
+  		@include border-top-radius(10px);
+		@include border-bottom-radius(10px);
+		@include border-left-radius(10px);
+		@include border-right-radius(10px);
+		@include inline-block;
+
+		&:hover .flipper, &.hover .flipper {
+			@include transform(rotateY(180deg));
+		}
+
+		.flipper{
+			transition: 0.6s;
+			@include transform-style(preserve-3d);
+
+			.front, .back {
+				@include backface-visibility(hidden);
+				@include border-top-radius(10px);
+				@include border-bottom-radius(10px);
+				@include border-left-radius(10px);
+				@include border-right-radius(10px);
+				position: absolute;
+				text-align: center;
+				width: 185px;
+				height: 278px;
+				background: white;
+				top: 0;
+				left: 0;
+			}	
+			/* front pane, placed above back */
+			.front {
+				z-index: 2;
+				.movie-poster {
+					display: block;
+					text-align: center;
+				  	//padding:10px 5px;  
+				  	margin: auto;
+				  	cursor: pointer;
+				  	overflow: hidden;
+				}
+			}
+
+			/* back, initially hidden pane */
+			.back {
+				@include transform(rotateY(180deg));
+			}
+		}
+	}
+}
+
+
+

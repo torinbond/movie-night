@@ -1,0 +1,143 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster+Two:700);
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  height: 100%;
+  font: normal 100% Verdana, Geneva, sans-serif;
+  background: url("../img/dark_exa.png");
+  background: url("../img/dark_exa.png"); }
+
+.listing {
+  overflow: auto;
+  /* Recommended in case content is larger than the container */
+  margin: auto;
+  /* Center the item vertically & horizontally */
+  position: relative;
+  /* Break it out of the regular flow */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  /* Set the bounds in which to center it, relative to its parent/container */ }
+  .listing ::-webkit-input-placeholder {
+    font-family: 'Glass Antiqua', cursive;
+    font-size: 1em; }
+  .listing ::-moz-placeholder {
+    /* Firefox 19+ */
+    font-family: 'Glass Antiqua', cursive;
+    font-size: 1em; }
+  .listing h1 {
+    font-family: 'Lobster Two', cursive;
+    text-align: center;
+    color: white;
+    font-size: 3em; }
+  .listing .form {
+    text-align: center; }
+    .listing .form input {
+      text-align: center;
+      font-family: 'Lobster Two', cursive;
+      font-size: 1.6em;
+      width: 35%;
+      height: 2em;
+      background: #f5f5f5;
+      border: 0;
+      border-radius: 6px;
+      margin: 0 auto 0 auto;
+      border: 1px solid #eee;
+      display: inline-block;
+      vertical-align: baseline;
+      zoom: 1;
+      *display: inline;
+      *vertical-align: auto; }
+    .listing .form .submit-button {
+      display: inline-block;
+      vertical-align: baseline;
+      zoom: 1;
+      *display: inline;
+      *vertical-align: auto;
+      width: 5%;
+      cursor: pointer; }
+
+.outer-container {
+  *zoom: 1;
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  text-align: center;
+  height: 500px;
+  margin: 25px auto 0 auto; }
+  .outer-container:before, .outer-container:after {
+    content: " ";
+    display: table; }
+  .outer-container:after {
+    clear: both; }
+  .outer-container .movie-container {
+    width: 205px;
+    height: 300px;
+    margin: 15px;
+    background: white;
+    perspective: 1000;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: inline-block;
+    vertical-align: baseline;
+    zoom: 1;
+    *display: inline;
+    *vertical-align: auto; }
+    .outer-container .movie-container:hover .flipper, .outer-container .movie-container.hover .flipper {
+      -webkit-transform: rotateY(180deg);
+      -moz-transform: rotateY(180deg);
+      -ms-transform: rotateY(180deg);
+      -o-transform: rotateY(180deg);
+      transform: rotateY(180deg); }
+    .outer-container .movie-container .flipper {
+      transition: 0.6s;
+      -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      -ms-transform-style: preserve-3d;
+      -o-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      /* front pane, placed above back */
+      /* back, initially hidden pane */ }
+      .outer-container .movie-container .flipper .front, .outer-container .movie-container .flipper .back {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: absolute;
+        text-align: center;
+        width: 185px;
+        height: 278px;
+        background: white;
+        top: 0;
+        left: 0; }
+      .outer-container .movie-container .flipper .front {
+        z-index: 2; }
+        .outer-container .movie-container .flipper .front .movie-poster {
+          display: block;
+          text-align: center;
+          margin: auto;
+          cursor: pointer;
+          overflow: hidden; }
+      .outer-container .movie-container .flipper .back {
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+        transform: rotateY(180deg); }
