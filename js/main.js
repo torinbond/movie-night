@@ -1,6 +1,6 @@
 /* CODEKIT APPENDS/PREPENDS
  * @codekit-prepend "vendor/jquery-1.10.2.min.js", "vendor/modernizr.min.js";
- * @codekit-append "lib/swipe.js";
+ * @codekit-append "lib/swipe.js", "lib/flowtype.js";
 */
 
 var jq = jQuery;
@@ -32,7 +32,6 @@ jq(document).ready(function(){
         movieRequest(movieName);
         console.log(url + movieName + key);						
     });
-
     
 
 	function movieRequest(movie){
@@ -57,15 +56,27 @@ jq(document).ready(function(){
         				content += "</div>";
         				content += "<div class='back'>";
         					content += "<p>" + item.title + "</p>";
+                            content += "<p>" + item.release_date + "</p>";
+                            content += "<i class='icon-plus'></i>"
         				content += "</div>";
         			content += "</div>";
+                    content += "<div class='voting'><i class='icon-heart-empty icon-large'> 25 Votes</div>";
         		content += "</div>";
         		jq(content).prependTo(".outer-container");
 
+                //3 would become a variable for the number of items to get   
         		if ( i === 3 ) {
 			    	return false;
 			    }
         	});
+            jq('i[class*="heart"]').on('click',function(){
+                console.log(jq(this));
+               if(jq(this).hasClass('icon-heart-empty')){
+                 jq(this).removeClass('icon-heart-empty').addClass('icon-heart');
+               } else {
+                 jq(this).removeClass('icon-heart').addClass('icon-heart-empty');
+               }
+            });
         })
         .fail(function() { 
         	console.log( "error" ); 
@@ -74,22 +85,16 @@ jq(document).ready(function(){
 			console.log( "complete" ); 
 		});
 	}
-	/*
-	function imageRequest(path){
-		jq.getJSON(configuration + queryKey, function(){
-        	console.log("Success");
-        })
-        .done(function(data){
-        	console.log(path);
-        	imageUrl = data.images.base_url + data.images.poster_sizes[1] + path;
-        	console.log(imageUrl);
-        	return imageUrl;
-    	})
-    	.always(function() { 
-			console.log( "complete" ); 
-		});
-	}
-	*/
+
+    function addMovie(){
+        //this method willdwa write the selected movie to a json file
+    }
+
+    function movieData(id){
+        //this method will pull all the movie's information from the server
+    }
+
+
 	
 
 });
